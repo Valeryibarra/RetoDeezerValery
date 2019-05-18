@@ -66,7 +66,14 @@ public class TrackActivity extends AppCompatActivity {
                         tv_name_track.setText(((Track) result).getShortTitle());
                         tv_artist_track.setText(((Track) result).getArtist().getName());
                         tv_album_track.setText(((Track) result).getAlbum().getTitle());
-                        tv_duration_track.setText(((Track) result).getDuration()+"");
+
+                        int duracionSec=((Track) result).getDuration();
+                        int hours =duracionSec / 3600;
+                        int minutes = (duracionSec % 3600) / 60;
+                        int seconds = duracionSec % 60;
+
+                        String timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds);
+                        tv_duration_track.setText(timeString+"");
 
                         Glide.with(getApplicationContext()).load(((Track) result).getAlbum().getMediumImageUrl()).into(img_track);
 

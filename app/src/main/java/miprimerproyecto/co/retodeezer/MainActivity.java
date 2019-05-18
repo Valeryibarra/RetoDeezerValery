@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.deezer.sdk.model.Album;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements AdapterPlaylist.O
     /** The list of playlist of displayed by this activity. */
     private List<Playlist> mPlaylistList = new ArrayList<Playlist>();
 
-    private SearchView sv_playlist;
+    private TextView sv_playlist;
     private Button btn_search_playlist;
 
     private RecyclerView rv_playlist;
@@ -78,9 +79,9 @@ public class MainActivity extends AppCompatActivity implements AdapterPlaylist.O
                 //tiene que tomar lo que escribio en el buscar y pasarlo al request
                 Log.e(">>>","entra al on click");
 
-                CharSequence query = sv_playlist.getQuery(); // get the query string currently in the text field
-                searchPlaylist(query.toString());
-                Log.e(">>>","sale al on click" +query.toString());
+                //CharSequence query = sv_playlist.getQuery(); // get the query string currently in the text field
+                searchPlaylist(sv_playlist.getText().toString());
+                //Log.e(">>>","sale al on click" +query.toString());
             }
         });
 
